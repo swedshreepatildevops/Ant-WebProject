@@ -1,2 +1,2 @@
 FROM tomcat:8
-COPY webapp/target/webapp.war /usr/local/tomcat/webapps
+COPY webapp/target/webapp.ear /usr/local/tomcat/webapps
