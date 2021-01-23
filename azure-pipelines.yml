@@ -18,3 +18,16 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
+
+- task: PublishBuildArtifacts@1
+  displayName: "Publishing artifacts"
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+    
+- task: DockerInstaller@0
+  displayName: "Installing docker cli on MS hosted agents"
+  inputs:
+    dockerVersion: '17.09.0-ce'
+    
