@@ -31,3 +31,8 @@ steps:
   inputs:
     dockerVersion: '17.09.0-ce'
     
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Ant ACR connection'
+    command: 'buildAndPush'
+    Dockerfile: 'Dockerfile'
