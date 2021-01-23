@@ -27,3 +27,15 @@ steps:
     publishLocation: 'Container'
     
 
+- task: DockerInstaller@0
+  displayName: "docker installer"
+  inputs:
+    dockerVersion: '17.09.0-ce'
+    
+- task: Docker@2
+  displayName: "Image pulling to ACR"
+  inputs:
+    containerRegistry: 'Ant ACR connection'
+    repository: 'swedacr'
+    command: 'buildAndPush'
+    Dockerfile: 'Dockerfile'
